@@ -14,7 +14,7 @@ class Activity:
     location: str
     remoteRoomUrl: str
     acceptSubscription: bool
-    #devem ser declarados como string ou um int? 
+    #devem ser declarados como string e depois transformados em int ou um int? 
     maxParticipants: int
 
 
