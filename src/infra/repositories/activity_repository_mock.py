@@ -9,9 +9,14 @@ class ActivityRepositoryMock(IActivityRepository):
 
     def __init__(self):
         self.activities = [
-            Activity("Atividade 1", "Tipo 1", "Código 1", "Descrição 1", "2021-01-01", "2021-01-02"),
-            Activity("Atividade 2", "Tipo 1", "Código 2", "Descrição 2", "2021-01-01", "2021-01-02"),
-            Activity("Atividade 3", "Tipo 3", "Código 3", "Descrição 3", "2021-01-01", "2021-01-02")
+            Activity("Atividade 1", "Tipo 1", "Código 1", "Descrição 1", "2021-01-01", "2021-01-02", 
+                    "Palestra", "Nome Sobrenome 1", True, "H201", "https://zoom.com/etc/1/", True),
+
+            Activity("Atividade 2", "Tipo 2", "Código 2", "Descrição 2", "2021-01-01", "2021-01-02",
+                    "Palestra", "Nome Sobrenome 2", True, "H202", "https://zoom.com/etc/3/", True),
+
+            Activity("Atividade 3", "Tipo 3", "Código 3", "Descrição 3", "2021-01-01", "2021-01-03",
+                    "Palestra", "Nome Sobrenome 3", True, "H203", "https://zoom.com/etc/3/", True)
         ]
 
     def get_all_activities(self) -> List[Activity]:
