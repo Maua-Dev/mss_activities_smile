@@ -1,5 +1,5 @@
 import pytest
-#completar
+#completar quando acabar estrutura dos outros arquivos
 from src.infra.repositories.activity_repository_mock import ActivityRepositoryMock
 
 
