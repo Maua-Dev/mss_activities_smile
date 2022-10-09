@@ -24,4 +24,4 @@ class GetActivityByCodeController:
         except Exception as e:
             return HttpResponse(body={"message": e.args[0]}, status_code=500)
 
-
+        except Exception as e:
