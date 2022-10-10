@@ -46,8 +46,7 @@ class InternalServerError(HttpResponse):
 class NotFound(HttpResponse):
     def __init__(self, body: Any) -> None:
         super().__init__(HttpStatusCode.NOT_FOUND.value, body)
-
-
+        
 #pra que serve esse?
     def __call__(self, *args, **kwargs):
         return self.body, self.status_code
