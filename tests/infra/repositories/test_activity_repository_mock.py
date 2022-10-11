@@ -27,6 +27,7 @@ class Test_ActivityRepositoryMock:
         activity = repo.get_activity_by_code("Código 4")
         assert activity == None
 
+#checar se by type é necessário
     def test_get_activities_by_type(self):
         repo = ActivityRepositoryMock()
 
@@ -41,3 +42,5 @@ class Test_ActivityRepositoryMock:
 
         activities = repo.get_activities_by_type("Tipo 4")
         assert activities == []
+
+   

@@ -29,26 +29,29 @@ class OK(HttpResponse):
     def __init__(self, body: Any) -> None:
      super().__init__(HttpStatusCode.OK.value, body)
 
+
 class Created(HttpResponse):
     def __init__(self) -> None:
         super().__init__(HttpStatusCode.CREATED.value, None)
+
 
 class NoContent(HttpResponse):
     def __init__(self) -> None:
         super().__init__(HttpStatusCode.NO_CONTENT.value, None)
 
 
-
 class InternalServerError(HttpResponse):
     def __init__(self, body: Any) -> None:
         super().__init__(HttpStatusCode.INTERNAL_SERVER_ERROR.value, body)
+
 
 class NotFound(HttpResponse):
     def __init__(self, body: Any) -> None:
         super().__init__(HttpStatusCode.NOT_FOUND.value, body)
         
-#pra que serve esse?
-    def __call__(self, *args, **kwargs):
-        return self.body, self.status_code
+
+
+def __call__(self, *args, **kwargs):
+    return self.body, self.status_code
 
     

@@ -1,10 +1,10 @@
 from typing import List
 
 from src.domain.entities.activity import Activity
-from src.domain.repositories.activity_repository_interface import IActivityRepository
+from src.domain.repositories.activity_repository_interface import ActivityRepository
 
 
-class ActivityRepositoryMock(IActivityRepository):
+class ActivityRepositoryMock(ActivityRepository):
     activities: List[Activity]
 
     def __init__(self):

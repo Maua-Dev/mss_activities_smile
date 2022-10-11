@@ -21,3 +21,5 @@ class Test_GetActivityByCodeUsecase:
 
         with pytest.raises(ACTIVITY_NOT_FOUND) as e:
             usecase("Código 4")
+
+    

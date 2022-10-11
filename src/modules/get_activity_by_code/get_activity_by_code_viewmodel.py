@@ -1,4 +1,3 @@
-'''
-Vilard não tinha criado o viewmodel. É pra ter um? o que teria nele?
+from typing import List
+from src.domain.entities.activity import Activity
 
-'''
