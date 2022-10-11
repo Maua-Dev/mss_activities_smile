@@ -1,7 +1,7 @@
 import asyncio
 
 from src.helpers.http_lambda_requests import LambdaHttpRequest, LambdaHttpResponse
-from src.infra.repositories.activity_repository_mock import SubjectRepositoryMock
+from src.infra.repositories.activity_repository_mock import Test_ActivityRepositoryMock
 from src.modules.get_activity_by_code.get_activity_by_code_controller import GetActivityByCodeController
 from src.modules.get_activity_by_code.get_activity_by_code_usecase import GetActivityByCodeUsecase
 #envs a ser criada (?)
