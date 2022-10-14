@@ -17,3 +17,7 @@ class IActivityRepository(ABC): #todo implementar os metodos
     @abstractmethod
     def get_activities_by_type(self, type: str) -> List[Activity]:
         pass
+
+    @abstractmethod
+    def create_activity(self, type: str) -> bool:
+        pass
