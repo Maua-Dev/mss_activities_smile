@@ -33,3 +33,7 @@ class ActivityRepositoryMock(IActivityRepository):
                 activities_aux.append(activity)
 
         return activities_aux
+
+    def create_activity(self, activity: Activity) -> bool:
+        self.activities.append(activity)
+        return True

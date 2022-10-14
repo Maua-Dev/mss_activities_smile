@@ -1,5 +1,6 @@
 import pytest
 
+from src.domain.entities.activity import Activity
 from src.infra.repositories.activity_repository_mock import ActivityRepositoryMock
 
 
@@ -41,3 +42,11 @@ class Test_ActivityRepositoryMock:
 
         activities = repo.get_activities_by_type("Tipo 4")
         assert activities == []
+
+    def test_create_activity(self):
+        repo = ActivityRepositoryMock()
+
+        new_activity = Activity("Atividade 4", "Tipo 4", "Código 4", "Descrição 4", "2021-01-01", "2021-01-02"),
+        response = repo.create_activity(new_activity)
+        assert response
+
