@@ -1,4 +1,3 @@
-import code
 from src.helpers.http_models import HttpRequest, HttpResponse
 from src.modules.delete_activity.delete_activity_usecase import DeleteActivityUsecase
 from src.helpers.errors import MISSING_FIELD
@@ -19,7 +18,10 @@ class DeleteActivityController:
             if not activity.get('initialDate'):
                 raise MISSING_FIELD("initialDate")
 
-            self.usecase(activity)
+            activity = self.DeleteActivityUsecase ( 
+                code = request.query_params.get('code'),
+                initialDate= request.query_params.get('initialDate'),
+                )
           
             return Created()
 
