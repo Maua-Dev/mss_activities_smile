@@ -1,4 +1,3 @@
-
 # Façam validação dos atributos
 
 class Activity:
@@ -36,7 +35,3 @@ class Activity:
         self.remoteRoomUrl = remoteRoomUrl
         self.acceptSubscription = acceptSubscription
         self.maxParticipants = maxParticipants
-
-
-
-
