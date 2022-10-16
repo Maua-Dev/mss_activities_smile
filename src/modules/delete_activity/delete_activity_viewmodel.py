@@ -2,7 +2,7 @@ from typing import List
 from src.domain.entities.activity import Activity
 
 
-class GetActivityViewModel:
+class DeleteActivityViewModel:
     title: str
     type: str
     code: str
