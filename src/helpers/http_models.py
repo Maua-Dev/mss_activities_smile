@@ -17,6 +17,8 @@ class HttpRequest:
 class HttpResponse:
     body: dict
     status_code: int
+    headers: dict 
+
     def __init__(self, status_code: int, body: dict = None, headers: dict = None):
         self.status_code = status_code
         self.body = body
@@ -49,9 +51,3 @@ class NotFound(HttpResponse):
     def __init__(self, body: Any) -> None:
         super().__init__(HttpStatusCode.NOT_FOUND.value, body)
         
-
-
-def __call__(self, *args, **kwargs):
-    return self.body, self.status_code
-
-    
