@@ -1,46 +1,37 @@
-from src.helpers.http_models import HttpRequest, HttpResponse
-from src.modules.get_activity_by_code.get_activity_by_code_usecase import ACTIVITY_NOT_FOUND, GetActivityByCodeUsecase
+from dataclasses import MISSING
+from src.domain.entities.activity import Activity
+from src.helpers.errors import MISSING_FIELD
+from src.helpers.http_models import Created, HttpRequest, HttpResponse
+from src.helpers.http_status_code import HttpStatusCode
+from src.modules.get_activity.get_activity_usecase import GetActivityUsecase
 
 
-'''
-O certo seria eu escrever os HTTPs responses dentro do helpers/http_models? que nem o vilard fez com o 200
-que nem aqui https://github.com/Maua-Dev/appmaua_subjects/blob/main/src/modules/get_subject/get_subject_controller.py
+class GetActivityController:
 
-Eu deveria, além do 200, incluir outros tipos de erro (aqui no controller e uma classe no USECASE)
-
-
-
-
-principais:
-https://www.restapitutorial.com/httpstatuscodes.html
-
-'''
-
-
-class GetActivityByCodeController:
-
-    def __init__(self, usecase: GetActivityByCodeUsecase):
+    def __init__(self, usecase: GetActivityUsecase):
         self.usecase = usecase
 
     def __call__(self, request: HttpRequest):
+
         try:
-            code = request.query_params.get("code")
 
-            if not code:
-                raise Exception("code is required")
+            activity = request.body
 
-            response = self.usecase(code)
-            #caso 200
-            return HttpResponse(body=response.__dict__)
+            activity_code = activity.get("code")
+            if not activity_code or activity_code == '':
+                raise MISSING_FIELD("code")
 
-        except ACTIVITY_NOT_FOUND as e:
+            response = self.usecase(activity_code)
+
+            if not activity.get('initialDate'):
+                raise MISSING_FIELD("initialDate")
+
+            self.usecase(activity)
+
+            return Created()
+
+        except MISSING_FIELD as err:
             return HttpResponse(
-                body={"message": e.message},
-                status_code=404
-            )
-
-        except Exception as e:
-            return HttpResponse(
-                body={"message": e.args[0]},
-                status_code=500
+                status_code=HttpStatusCode.INTERNAL_SERVER_ERROR.value,
+                body=err.message
             )
