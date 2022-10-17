@@ -1,5 +1,5 @@
 from src.helpers.http_models import HttpRequest, HttpResponse
-from src.modules.get_activity_by_code.get_activity_by_code_usecase import ACTIVITY_NOT_FOUND, GetActivityByCodeUsecase
+from src.modules.get_all_activities.get_activity_by_code_usecase import ACTIVITY_NOT_FOUND, GetActivityByCodeUsecase
 
 
 class GetActivityByCodeController:
