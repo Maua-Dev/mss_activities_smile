@@ -50,12 +50,14 @@ class ActivityRepositoryMock(IActivityRepository):
         return None
 
 
-    def get_activities_by_type(self, type: str) -> List[Activity]:
+    def delete_activitity(self, code: str) -> bool:
         activities_aux = []
 
         for activity in self.activities:
-            if activity.type == type:
+            if activity.code != code:
                 activities_aux.append(activity)
+        self.activities = activities_aux
 
-        return activities_aux
+        return True
+
 

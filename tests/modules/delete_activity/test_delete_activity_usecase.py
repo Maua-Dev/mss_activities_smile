@@ -10,16 +10,20 @@ class Test_DeleteActivityUsecase:
     def test_delete_activity_usecase(self):
         repo = ActivityRepositoryMock()
         usecase = DeleteActivityUsecase(repo=repo)
-        activity = usecase(code = "Código 1", initialDate = "2021-01-01")
+        res = usecase(code = "Código 1")
        
-        assert activity == repo.activities[0]
+        assert repo.activities[0] != "Código 1"
+        assert res
+        
 
-    def test_get_activity_not_found(self):
-        repo = ActivityRepositoryMock()
-        usecase = DeleteActivityUsecase(repo)
 
-        with pytest.raises(MISSING_FIELD) as e:
-            activity = usecase(code='', initialDate='2029-01-01')
+
+
+
+
+
+
+
 
     '''
     to do:
