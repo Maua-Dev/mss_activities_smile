@@ -4,16 +4,16 @@ from typing import List, Tuple
 from src.domain.entities.activity import Activity
 
 
-class IActivityRepository(ABC): #todo implementar os metodos
+class IActivityRepository(ABC):  # todo implementar os metodos
 
     @abstractmethod
     def get_all_activities(self) -> List[Activity]:
         pass
 
     @abstractmethod
-    def get_activity_by_code(self, activityCode:str) -> Activity:
+    def get_activity_by_code(self, activityCode: str) -> Activity:
         pass
 
     @abstractmethod
-    def get_activities_by_type(self, type: str) -> List[Activity]:
+    def delete_activity(self, code: str) -> bool:
         pass
