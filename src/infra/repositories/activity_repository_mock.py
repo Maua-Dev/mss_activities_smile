@@ -55,5 +55,4 @@ class ActivityRepositoryMock(IActivityRepository):
             if activity.code != code:
                 activities_aux.append(activity)
         self.activities = activities_aux
-
         return True

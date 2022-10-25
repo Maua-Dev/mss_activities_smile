@@ -37,10 +37,3 @@ class Test_ActivityRepositoryMock:
 
         activity = repo.get_activity_by_code("Código 8")
         assert activity == repo.activities[7]
-
-        activity = repo.get_activity_by_code("Codigo 8")
-        assert activity == repo.activities[8]
-
-
-   
-#descobrir se é type ou initial date e fazer
