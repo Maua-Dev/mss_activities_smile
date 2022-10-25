@@ -60,10 +60,8 @@ class LambdaDefaultHTTP:
     def __init__(self, data: dict = None) -> None:
         """
         Constructor for LambdaHttp.
-
         Args:
             event: dict - the event passed to the lambda function.
-
         """
         if not data:
             return

@@ -25,7 +25,6 @@ class HttpResponse:
         self.headers = headers
 
 
-
 class OK(HttpResponse):
     def __init__(self, body: Any) -> None:
         super().__init__(HttpStatusCode.OK.value, body)
@@ -54,4 +53,3 @@ class RedirectResponse(HttpResponse):
     def __init__(self, body: dict) -> None:
         super().__init__(HttpStatusCode.REDIRECT.value, None)
         self.location = body
-
