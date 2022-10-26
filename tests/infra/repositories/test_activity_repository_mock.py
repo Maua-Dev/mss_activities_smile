@@ -1,5 +1,4 @@
 import pytest
-#completar quando acabar estrutura dos outros arquivos
 from src.infra.repositories.activity_repository_mock import ActivityRepositoryMock
 
 
@@ -27,20 +26,14 @@ class Test_ActivityRepositoryMock:
         activity = repo.get_activity_by_code("Código 4")
         assert activity == repo.activities[3]
 
-        activity = repo.get_activity_by_code("")
+        activity = repo.get_activity_by_code("Código 5")
         assert activity == repo.activities[4]
 
-        activity = repo.get_activity_by_code(" ")
+        activity = repo.get_activity_by_code("Código 6")
         assert activity == repo.activities[5]
 
-        activity = repo.get_activity_by_code("aa")
+        activity = repo.get_activity_by_code("Código 7")
         assert activity == repo.activities[6]
 
-        activity = repo.get_activity_by_code("CÓDIGO 7")
+        activity = repo.get_activity_by_code("Código 8")
         assert activity == repo.activities[7]
-        
-        activity = repo.get_activity_by_code("Codigo 8")
-        assert activity == repo.activities[8]
-
-
-   

@@ -1,3 +1,13 @@
 **/.pytest_cache/
 **/__pycache__
+<<<<<<< HEAD
 .idea
+=======
+.idea
+**.cfg
+/Lib
+/Scripts
+/vscode/**/*
+/Include
+
+>>>>>>> cc98879f55769b4e050490556aca1478db6c5977

@@ -49,6 +49,7 @@ class LambdaHttpResponse(HttpResponse):
             f"HttpResponse (status_code={self.status_code}, body={self.body}, headers={self.headers})"
         )
 
+
 class LambdaDefaultHTTP:
     method: str = ""
     path: str = ""
