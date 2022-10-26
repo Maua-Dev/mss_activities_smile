@@ -1,34 +1,26 @@
 from dataclasses import MISSING
 from src.domain.entities.activity import Activity
 from src.helpers.errors import MISSING_FIELD
-from src.helpers.http_models import Created, HttpRequest, HttpResponse
+from src.helpers.http_models import OK, HttpRequest, HttpResponse, NoContent
 from src.helpers.http_status_code import HttpStatusCode
-from src.modules.get_activity.get_activity_usecase import GetActivityUsecase
+from src.modules.get_all_activities.get_all_activities_usecase import GetAllActivitiesUsecase
+from src.modules.get_all_activities.get_all_activity_viewmodel import GetAllActivitiesViewmodel
 
 
-class GetActivityController:
+class GetAllActivitiesController:
 
-    def __init__(self, usecase: GetActivityUsecase):
+    def __init__(self, usecase: GetAllActivitiesUsecase):
         self.usecase = usecase
 
     def __call__(self, request: HttpRequest):
 
         try:
+            response = self.usecase()
+            if len(response) == 0:
+                return NoContent()
 
-            activity = request.body
-
-            activity_code = activity.get("code")
-            if not activity_code or activity_code == '':
-                raise MISSING_FIELD("code")
-
-            response = self.usecase(activity_code)
-
-            if not activity.get('initialDate'):
-                raise MISSING_FIELD("initialDate")
-
-            self.usecase(activity)
-
-            return Created()
+            viewModel = GetAllActivitiesViewmodel(response)
+            return OK(body=viewModel.to_dict())
 
         except MISSING_FIELD as err:
             return HttpResponse(
