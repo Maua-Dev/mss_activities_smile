@@ -3,7 +3,9 @@ from src.infra.repositories.activity_repository_mock import ActivityRepositoryMo
 from src.modules.get_all_activities.get_all_activities_controller import GetAllActivitiesController
 from src.modules.get_all_activities.get_all_activities_usecase import GetAllActivitiesUsecase
 from src.modules.get_all_activities.get_all_activities_viewmodel import GetAllActivitiesViewmodel
-class Test_GetActivityByCodeController:
+
+
+class Test_GetAllActivitiesController:
 
     def test_get_activity(self):
         repo = ActivityRepositoryMock()
@@ -17,9 +19,6 @@ class Test_GetActivityByCodeController:
         assert httpResponse.status_code == 200
         assert httpResponse.body == viewModel.to_dict()
 
-
-
-
     def test_get_all_activities_no_content(self):
         repo = ActivityRepositoryMock()
         repo.activities = []
@@ -30,4 +29,3 @@ class Test_GetActivityByCodeController:
 
         httpResponse = controller(httpRequest)
         assert httpResponse.status_code == 204
-        

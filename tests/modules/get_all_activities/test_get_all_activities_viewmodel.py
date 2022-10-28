@@ -1,6 +1,8 @@
 import pytest
 from src.modules.get_all_activities.get_all_activities_viewmodel import GetAllActivitiesViewmodel
 from src.infra.repositories.activity_repository_mock import ActivityRepositoryMock
+
+
 class Test_GetAllSubjectsViewModel:
     def test_get_all_activities_view_model(self): 
         repo = ActivityRepositoryMock()
@@ -14,14 +16,12 @@ class Test_GetAllSubjectsViewModel:
             'schedule': {
                 'date': "2021-01-01",
                 'totalParticipants': "40",
-                'duration': "2021-01-02", #checar 
+                'duration': "2021-01-02",
                 'location': "H201",
-                'link': "https://www.zoom.com/etc/1/",
+                'link': "https://zoom.com/etc/1/",
                 'acceptSubscription': True
-                # 'enrolledUsers': self.enrolledUsers
                 },
             'speakers': "Nome Sobrenome 1"
         }
-
 
         assert activityViewModel == result

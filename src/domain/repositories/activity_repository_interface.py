@@ -4,7 +4,7 @@ from typing import List, Tuple
 from src.domain.entities.activity import Activity
 
 
-class v(ABC):  # todo implementar os metodos
+class IActivityRepository(ABC):  # todo implementar os metodos
 
     @abstractmethod
     def get_all_activities(self) -> List[Activity]:

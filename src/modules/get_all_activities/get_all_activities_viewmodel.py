@@ -57,17 +57,17 @@ class ActivityViewModel:
             'type': self.type,
             'title': self.title,
             'description': self.description,
-            'schedule': self.schedule,
+            'schedule': self.schedule.to_dict(),
             'speakers': self.speakers
         }
 
 
 class GetAllActivitiesViewmodel:
-    activities: List[Activity] = []
+    activities: List[ActivityViewModel] = []
 
     def __init__(self, data: List[Activity]):
-        self.activities = [ActivityViewModel(
-            activity.dict()) for activity in data]
+        self.activities = [ActivityViewModel(activity) for activity in data]
 
     def to_dict(self):
         return [activity.to_dict() for activity in self.activities]
+
