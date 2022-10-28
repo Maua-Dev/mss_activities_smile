@@ -4,7 +4,7 @@ from src.helpers.errors import MISSING_FIELD
 from src.helpers.http_models import OK, HttpRequest, HttpResponse, NoContent
 from src.helpers.http_status_code import HttpStatusCode
 from src.modules.get_all_activities.get_all_activities_usecase import GetAllActivitiesUsecase
-from src.modules.get_all_activities.get_all_activity_viewmodel import GetAllActivitiesViewmodel
+from src.modules.get_all_activities.get_all_activities_viewmodel import GetAllActivitiesViewmodel
 
 
 class GetAllActivitiesController:
