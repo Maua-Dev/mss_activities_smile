@@ -1,37 +1,23 @@
 # Façam validação dos atributos
+from typing import List
+
+from src.domain.entities.schedule import Schedule
+from src.domain.entities.speaker import Speaker
+
 
 class Activity:
     title: str
-    type: str
     code: str
     description: str
-    initialDate: str
-    finalDate: str
-    activityType: str
-    speakers: str
-    acceptSubscriptionUntilDate: bool
-    location: str
-    remoteRoomUrl: str
-    acceptSubscription: bool
-    maxParticipants: int
+    activity_type: str
+    speakers: List[Speaker]
+    schedule: List[Schedule]
 
-
-
-
-    def __init__(self, title, type, code, description, initialDate, 
-                finalDate, activityType, speakers, acceptSubscriptionUntilDate, 
-                location, remoteRoomUrl, acceptSubscription, maxParticipants):
+    def __init__(self, title, code, description, activity_type, speakers, schedule):
 
         self.title = title
-        self.type = type
         self.code = code
         self.description = description
-        self.initialDate = initialDate
-        self.finalDate = finalDate
-        self.activityType = activityType
+        self.activity_type = activity_type
         self.speakers = speakers
-        self.acceptSubscriptionUntilDate = acceptSubscriptionUntilDate
-        self.location = location
-        self.remoteRoomUrl = remoteRoomUrl
-        self.acceptSubscription = acceptSubscription
-        self.maxParticipants = maxParticipants
+        self.schedule = schedule

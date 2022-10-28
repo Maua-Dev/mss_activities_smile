@@ -13,15 +13,19 @@ class Test_GetAllSubjectsViewModel:
             'type': "Tipo 1",
             'title': "Atividade 1",
             'description': "Descrição 1",
-            'schedule': {
+            'schedule': [{
                 'date': "2021-01-01",
-                'totalParticipants': "40",
+                'totalParticipants': 100,
                 'duration': "2021-01-02",
                 'location': "H201",
                 'link': "https://zoom.com/etc/1/",
                 'acceptSubscription': True
-                },
-            'speakers': "Nome Sobrenome 1"
+                }],
+            'speakers': [{
+                'name': 'Nome Sobrenome 1',
+                'bio': 'bla bla bla',
+                'company': 'Dev Community Mauá'
+            }]
         }
 
         assert activityViewModel == result
