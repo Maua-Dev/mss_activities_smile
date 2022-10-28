@@ -1,6 +1,8 @@
 from typing import List
 
 from src.domain.entities.activity import Activity
+from src.domain.entities.schedule import Schedule
+from src.domain.entities.speaker import Speaker
 from src.domain.repositories.activity_repository_interface import IActivityRepository
 
 
@@ -9,41 +11,95 @@ class ActivityRepositoryMock(IActivityRepository):
 
     def __init__(self):
         self.activities = [
-            Activity("Atividade 1", "Tipo 1", "Código 1", "Descrição 1", "2021-01-01", "2021-01-02",
-                     "Palestra", "Nome Sobrenome 1", True, "H201", "https://zoom.com/etc/1/", True, '40'),
+            Activity(title='Atividade 1', code='Código 1', description='Descrição 1', activity_type='Tipo 1',
+                     speakers=[
+                         Speaker(
+                             name='Nome Sobrenome 1',
+                             bio='bla bla bla',
+                             company='Dev Community Mauá'
+                         )
+                     ],
+                     schedule=[
+                         Schedule(
+                             initialDate='2021-01-01',
+                             finalDate='2021-01-02',
+                             maxParticipants=100,
+                             location='H201',
+                             remoteRoomUrl='https://zoom.com/etc/1/',
+                             acceptSubscription=True,
+                             acceptSubscriptionUntilDate='2021-01-02'
+                         )
+                     ]
+                     ),
+            Activity(title='Atividade 2', code='Código 2', description='Descrição 2', activity_type='Tipo 2',
+                     speakers=[
+                         Speaker(
+                             name='Nome Sobrenome 2',
+                             bio='bla bla bla',
+                             company='Dev Community Mauá'
+                         )
+                     ],
+                     schedule=[
+                         Schedule(
+                             initialDate='2021-01-01',
+                             finalDate='2021-01-02',
+                             maxParticipants=100,
+                             location='H201',
+                             remoteRoomUrl='https://zoom.com/etc/1/',
+                             acceptSubscription=True,
+                             acceptSubscriptionUntilDate='2021-01-02'
+                         )
+                     ]
+                     ),
 
-            Activity("Atividade 2", "Tipo 2", "Código 2", "Descrição 2", "2021-01-01", "2021-01-02",
-                     "Palestra", "Nome Sobrenome 2", True, "H202", "https://zoom.com/etc/3/", True, '33'),
-
-            Activity("Atividade 3", "Tipo 3", "Código 3", "Descrição 3", "2021-01-01", "2021-01-03",
-                     "Palestra", "Nome Sobrenome 3", True, "H203", "https://zoom.com/etc/3/", False, '100'),
-
-            Activity("Atividade 4", "Tipo 3", "Código 4", "Descrição 3", "2021-01-01", "2021-01-03",
-                     "Palestra", "Nome Sobrenome 3", True, "H204", "https://zoom.com/etc/4/", True, '100'),
-
-            Activity("Atividade 5", "Tipo 2", "Código 5", "Descrição 4", "2021-01-01", "2021-01-03",
-                     "Workshop", "Nome Sobrenome 3", True, "H205", "https://zoom.com/etc/5/", False, '100'),
-
-            Activity("Atividade 6", "Tipo 1", "Código 6", "Descrição 5", "2021-01-01", "2021-01-03",
-                     "Palestra", "Nome Sobrenome 3", True, "H206", "https://zoom.com/etc/6/", True, '12'),
-
-            Activity("Atividade 7", "Tipo 3", "Código 7", "Descrição 6", "2021-01-01", "2021-01-03",
-                     "Workshop", "Nome Sobrenome 3", True, "H207", "https://zoom.com/etc/7/", True, '45'),
-
-            Activity("Atividade 8", "Tipo 1", "Código 8", "Descrição 7", "2021-01-01", "2021-01-03",
-                     "Palestra", "Nome Sobrenome 3", True, "H208", "https://zoom.com/etc/8/", False, '100'),
-
-            Activity("Atividade 9", "Tipo 2", "Código 9", "Descrição 8", "2021-01-01", "2021-01-03",
-                     "Palestra", "Nome Sobrenome 3", True, "H209", "https://zoom.com/etc/9/", True, '50')
-
+            Activity(title='Atividade 3', code='Código 3', description='Descrição 3', activity_type='Tipo 3',
+                     speakers=[
+                         Speaker(
+                             name='Nome Sobrenome 3',
+                             bio='bla bla bla',
+                             company='Dev Community Mauá'
+                         )
+                     ],
+                     schedule=[
+                         Schedule(
+                             initialDate='2021-01-01',
+                             finalDate='2021-01-02',
+                             maxParticipants=100,
+                             location='H201',
+                             remoteRoomUrl='https://zoom.com/etc/1/',
+                             acceptSubscription=True,
+                             acceptSubscriptionUntilDate='2021-01-02'
+                         )
+                     ]
+                     ),
+            Activity(title='Atividade 4', code='Código 4', description='Descrição 4', activity_type='Tipo 4',
+                     speakers=[
+                         Speaker(
+                             name='Nome Sobrenome 2',
+                             bio='bla bla bla',
+                             company='Dev Community Mauá'
+                         )
+                     ],
+                     schedule=[
+                         Schedule(
+                             initialDate='2021-01-01',
+                             finalDate='2021-01-02',
+                             maxParticipants=100,
+                             location='H201',
+                             remoteRoomUrl='https://zoom.com/etc/1/',
+                             acceptSubscription=True,
+                             acceptSubscriptionUntilDate='2021-01-02'
+                         )
+                     ]
+                     ),
         ]
 
     def get_all_activities(self) -> List[Activity]:
         return self.activities
 
-    def get_activity_by_code(self, activityCode: str) -> Activity:
+    def get_activity_by_code(self, activity_code: str) -> Activity:
         for activity in self.activities:
-            if activity.code == activityCode:
+            if activity.code == activity_code:
                 return activity
 
         return None
