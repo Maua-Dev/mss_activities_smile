@@ -9,3 +9,4 @@ class CreateActivityUsecase:
 
     def __call__(self, activity) -> bool:
         return self.activity_repository.create_activity(activity)
+

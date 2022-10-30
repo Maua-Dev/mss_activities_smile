@@ -11,12 +11,13 @@ class IActivityRepository(ABC):  # todo implementar os metodos
         pass
 
     @abstractmethod
-    def get_activity_by_code(self, activityCode: str) -> Activity:
+    def get_activity_by_code(self, activity_code: str) -> Activity:
         pass
 
     @abstractmethod
     def delete_activity(self, code: str) -> bool:
         pass
 
-    def get_activities_by_type(self, type: str) -> List[Activity]:
+    @abstractmethod
+    def create_activity(self, activity: Activity) -> bool:
         pass

@@ -53,7 +53,7 @@ class ActivityViewModel:
     title: str
     code: str
     description: str
-    activity_type: str
+    activityType: str
     speakers: SpeakerViewModel
     schedule: ScheduleViewModel
 
@@ -61,14 +61,14 @@ class ActivityViewModel:
         self.title = data.title
         self.code = data.code
         self.description = data.description
-        self.activity_type = data.activity_type
+        self.activityType = data.activity_type
         self.speakers = SpeakerViewModel(data.speakers)
         self.schedule = ScheduleViewModel(data.schedule)
 
     def to_dict(self):
         return {
             'activityCode': self.code,
-            'type': self.activity_type,
+            'type': self.activityType,
             'title': self.title,
             'description': self.description,
             'schedule': self.schedule.to_dict(),
