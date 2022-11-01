@@ -40,12 +40,6 @@ class Activity:
             if description == None:
                 return False
 
-        @staticmethod
-        def validate_activityType(activityType: str)->bool:
-        
-            if activityType == None:
-                return False
-
 
 
                 
