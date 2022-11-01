@@ -1,3 +1,5 @@
+import datetime
+
 from src.helpers.http_models import HttpRequest
 from src.infra.repositories.activity_repository_mock import ActivityRepositoryMock
 from src.modules.create_activity.create_activity_controller import CreateActivityController
@@ -20,14 +22,14 @@ class Test_CreateActivityController:
         ],
         'schedule': [
             {
-                'initialDate': '2021-01-01',
-                'finalDate': '2021-01-02',
+                'initialDate': datetime.datetime(year=2022, month=9, day=20, hour=10, minute=00),
+                'finalDate': datetime.datetime(year=2022, month=9, day=20, hour=11, minute=00),
                 'totalParticipants': 100,
                 'location': 'H201',
                 'link': 'https://zoom.com/etc/1/',
                 'acceptSubscription': True,
-                'acceptSubscriptionUntilDate': '2021-01-02',
-                'duration': '30'
+                'acceptSubscriptionUntilDate': datetime.datetime(year=2022, month=9, day=20, hour=11, minute=00),
+                'duration': datetime.timedelta(minutes=60)
             }]
     }
 

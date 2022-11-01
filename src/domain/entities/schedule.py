@@ -5,12 +5,12 @@ import datetime
 class Schedule:
     initialDate: datetime.datetime
     finalDate: datetime.datetime
-    duration: datetime.time
+    duration: datetime.timedelta
     maxParticipants: int
     location: str
     remoteRoomUrl: str
     acceptSubscription: bool
-    acceptSubscriptionUntilDate: bool
+    acceptSubscriptionUntilDate: datetime.datetime
 
     def __init__(self,
                  initialDate,

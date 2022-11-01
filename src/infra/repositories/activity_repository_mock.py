@@ -1,3 +1,4 @@
+import datetime
 from typing import List
 
 from src.domain.entities.activity import Activity
@@ -21,13 +22,13 @@ class ActivityRepositoryMock(IActivityRepository):
                      ],
                      schedule=[
                          Schedule(
-                             initialDate='2021-01-01',
-                             finalDate='2021-01-02',
+                             initialDate=datetime.datetime(year=2022, month=9, day=20, hour=10, minute=00),
+                             finalDate=datetime.datetime(year=2022, month=9, day=20, hour=11, minute=00),
                              maxParticipants=100,
                              location='H201',
                              remoteRoomUrl='https://zoom.com/etc/1/',
                              acceptSubscription=True,
-                             acceptSubscriptionUntilDate='2021-01-02',
+                             acceptSubscriptionUntilDate=datetime.datetime(year=2022, month=9, day=20, hour=11, minute=00),
                              duration=None
                          )
                      ]
@@ -42,13 +43,13 @@ class ActivityRepositoryMock(IActivityRepository):
                      ],
                      schedule=[
                          Schedule(
-                             initialDate='2021-01-01',
-                             finalDate='2021-01-02',
+                             initialDate=datetime.datetime(year=2022, month=9, day=20, hour=10, minute=00),
+                             finalDate=datetime.datetime(year=2022, month=9, day=20, hour=11, minute=00),
                              maxParticipants=100,
                              location='H201',
                              remoteRoomUrl='https://zoom.com/etc/1/',
                              acceptSubscription=True,
-                             acceptSubscriptionUntilDate='2021-01-02',
+                             acceptSubscriptionUntilDate=datetime.datetime(year=2022, month=9, day=20, hour=11, minute=00),
                              duration=None
                          )
                      ]
@@ -64,13 +65,13 @@ class ActivityRepositoryMock(IActivityRepository):
                      ],
                      schedule=[
                          Schedule(
-                             initialDate='2021-01-01',
-                             finalDate='2021-01-02',
+                             initialDate=datetime.datetime(year=2022, month=9, day=20, hour=10, minute=00),
+                             finalDate=datetime.datetime(year=2022, month=9, day=20, hour=11, minute=00),
                              maxParticipants=100,
                              location='H201',
                              remoteRoomUrl='https://zoom.com/etc/1/',
                              acceptSubscription=True,
-                             acceptSubscriptionUntilDate='2021-01-02',
+                             acceptSubscriptionUntilDate=datetime.datetime(year=2022, month=9, day=20, hour=11, minute=00),
                              duration=None
                          )
                      ]
@@ -85,13 +86,13 @@ class ActivityRepositoryMock(IActivityRepository):
                      ],
                      schedule=[
                          Schedule(
-                             initialDate='2021-01-01',
-                             finalDate='2021-01-02',
+                             initialDate=datetime.datetime(year=2022, month=9, day=20, hour=10, minute=00),
+                             finalDate=datetime.datetime(year=2022, month=9, day=20, hour=11, minute=00),
                              maxParticipants=100,
                              location='H201',
                              remoteRoomUrl='https://zoom.com/etc/1/',
                              acceptSubscription=True,
-                             acceptSubscriptionUntilDate='2021-01-02',
+                             acceptSubscriptionUntilDate=datetime.datetime(year=2022, month=9, day=20, hour=11, minute=00),
                              duration=None
                          )
                      ]
