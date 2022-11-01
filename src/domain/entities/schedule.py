@@ -1,5 +1,7 @@
 # Façam validação dos atributos
 import datetime
+
+
 class Schedule:
     initialDate: datetime.datetime
     finalDate: datetime.datetime
@@ -21,8 +23,8 @@ class Schedule:
                  acceptSubscriptionUntilDate
                  ):
         self.initialDate = initialDate
-        self.finalDate = finalDate or initialDate+duration
-        self.duration = duration
+        self.finalDate = finalDate or initialDate + duration
+        self.duration = duration or finalDate - initialDate
         self.maxParticipants = maxParticipants
         self.location = location
         self.remoteRoomUrl = remoteRoomUrl
