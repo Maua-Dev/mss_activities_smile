@@ -1,4 +1,3 @@
-# Façam validação dos atributos
 from typing import List
 
 from src.domain.entities.schedule import Schedule
