@@ -30,7 +30,6 @@ class Activity:
             if type(title) != str:
                 return False
 
-            #descobrir estrutura do código pra verificação
         @staticmethod
         def validate_code(code: str)->bool:
         
@@ -40,7 +39,6 @@ class Activity:
             if type(code) != str:
                 return False
 
-            #verificar se na versão final haverá acento
             if "Código" not in code:
                 return False
                 
@@ -66,7 +64,7 @@ class Activity:
         @staticmethod
         def validate_speakers(speakers: list)->bool:
         
-            if len(speakers) < 3:
+            if len(speakers) == 0:
                 return False
 
             if type(speakers) != list:
