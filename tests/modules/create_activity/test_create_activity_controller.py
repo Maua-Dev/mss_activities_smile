@@ -23,7 +23,7 @@ class Test_CreateActivityController:
         'schedule': [
             {
                 'initialDate': datetime.datetime(year=2022, month=9, day=20, hour=10, minute=00),
-                'finalDate': datetime.datetime(year=2022, month=9, day=20, hour=11, minute=00),
+                'finalDate': None,
                 'totalParticipants': 100,
                 'location': 'H201',
                 'link': 'https://zoom.com/etc/1/',

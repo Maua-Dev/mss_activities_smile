@@ -1,3 +1,5 @@
+import datetime
+
 from src.domain.entities.activity import Activity
 from src.domain.entities.schedule import Schedule
 from src.domain.entities.speaker import Speaker
@@ -12,7 +14,7 @@ class Test_CreateActivityUsecase:
         usecase = CreateActivityUsecase(repo)
         len_before = len(repo.activities)
         res = usecase(
-            activity=Activity(title='Atividade 5', code='Código 5', description='Descrição 5', activity_type='Tipo 5',
+            activity=Activity(title='Atividade 5', code='Código 5', description='Descrição 5', activityType='Tipo 5',
                               speakers=[
                                   Speaker(
                                       name='Nome Sobrenome 5',
@@ -22,14 +24,14 @@ class Test_CreateActivityUsecase:
                               ],
                               schedule=[
                                   Schedule(
-                                      initialDate='2021-01-01',
-                                      finalDate='2021-01-02',
+                                      initialDate=datetime.datetime(year=2022, month=9, day=20, hour=10, minute=00),
+                                      finalDate=None,
                                       maxParticipants=100,
                                       location='H201',
                                       remoteRoomUrl='https://zoom.com/etc/1/',
                                       acceptSubscription=True,
                                       acceptSubscriptionUntilDate='2021-01-02',
-                                      duration=None
+                                      duration=datetime.timedelta(minutes=60)
                                   )
                               ]
                               ), )
