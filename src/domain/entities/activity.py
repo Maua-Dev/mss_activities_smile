@@ -21,3 +21,31 @@ class Activity:
         self.activityType = activityType
         self.speakers = speakers
         self.schedule = schedule
+
+        @staticmethod
+        def validate_title(title: str)->bool:
+        
+            if title == None:
+                return False
+
+        @staticmethod
+        def validate_code(code: str)->bool:
+        
+            if code == None:
+                return False
+
+        @staticmethod
+        def validate_description(description: str)->bool:
+        
+            if description == None:
+                return False
+
+        @staticmethod
+        def validate_activityType(activityType: str)->bool:
+        
+            if activityType == None:
+                return False
+
+
+
+                
