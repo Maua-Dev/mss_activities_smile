@@ -72,15 +72,14 @@ class Schedule:
             if type(maxParticipants) != int:
                 return False
 
-        #considerando que maxParticipants é opcional, caso seja no ginásio de esportes, por exemplo
-        # @staticmethod
-        # def validate_location(location: str)->bool:
+        @staticmethod
+        def validate_location(location: str)->bool:
         
-        #     if location == None:
-        #         return False
+            if location == None:
+                return False
 
-        #     if type(location) != str:
-        #         return False
+            if type(location) != str:
+                return False
 
         @staticmethod
         def validate_remoteRoomUrl(remoteRoomUrl: str) -> bool:
