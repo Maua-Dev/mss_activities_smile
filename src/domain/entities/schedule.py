@@ -1,4 +1,3 @@
-# Façam validação dos atributos
 from datetime import datetime, timedelta
 
 
@@ -44,14 +43,12 @@ class Schedule:
             if not isinstance(finalDate, datetime):
                 return False
 
-
             #initialDate validation
             if initialDate == None:
                 return False
 
             if not isinstance(initialDate, datetime):
                 return False            
-
 
             #duration validation:
             if duration == None:
@@ -64,7 +61,7 @@ class Schedule:
                 return False
 
         @staticmethod
-        def validate_maxParticipants(maxParticipants: int)->bool:
+        def validate_maxParticipants(maxParticipants: int) -> bool:
         
             if maxParticipants == None:
                 return False
@@ -75,17 +72,18 @@ class Schedule:
             if type(maxParticipants) != int:
                 return False
 
-
-        @staticmethod
-        def validate_location(location: str)->bool:
+        #considerando que maxParticipants é opcional, caso seja no ginásio de esportes, por exemplo
+        # @staticmethod
+        # def validate_location(location: str)->bool:
         
-            if location == None:
-                return False
+        #     if location == None:
+        #         return False
 
-            if type(location) != str:
-                return False
+        #     if type(location) != str:
+        #         return False
+
         @staticmethod
-        def validate_remoteRoomUrl(remoteRoomUrl: str)->bool:
+        def validate_remoteRoomUrl(remoteRoomUrl: str) -> bool:
         
             if remoteRoomUrl == None:
                 return False
@@ -94,7 +92,7 @@ class Schedule:
                 return False
 
         @staticmethod
-        def validate_acceptSubscription(acceptSubscription: bool)->bool:
+        def validate_acceptSubscription(acceptSubscription: bool) -> bool:
         
             if acceptSubscription is False:
                 return False
@@ -103,7 +101,7 @@ class Schedule:
                 return False   
 
         @staticmethod
-        def validate_acceptSubscriptionUntilDate(acceptSubscriptionUntilDate: datetime)->bool:
+        def validate_acceptSubscriptionUntilDate(acceptSubscriptionUntilDate: datetime) -> bool:
         
             if acceptSubscriptionUntilDate is None:
                 return False

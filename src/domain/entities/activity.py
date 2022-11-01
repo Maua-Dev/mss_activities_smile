@@ -22,7 +22,7 @@ class Activity:
         self.schedule = schedule
 
         @staticmethod
-        def validate_title(title: str)->bool:
+        def validate_title(title: str) -> bool:
         
             if title == None:
                 return False
@@ -31,7 +31,7 @@ class Activity:
                 return False
 
         @staticmethod
-        def validate_code(code: str)->bool:
+        def validate_code(code: str) -> bool:
         
             if code == None:
                 return False
@@ -43,7 +43,7 @@ class Activity:
                 return False
                 
         @staticmethod
-        def validate_description(description: str)->bool:
+        def validate_description(description: str) -> bool:
         
             if description == None:
                 return False
@@ -53,7 +53,7 @@ class Activity:
 
 
         @staticmethod
-        def validate_activityType(activityType: str)->bool:
+        def validate_activityType(activityType: str) -> bool:
         
             if activityType == None:
                 return False
@@ -62,7 +62,7 @@ class Activity:
                 return False
 
         @staticmethod
-        def validate_speakers(speakers: list)->bool:
+        def validate_speakers(speakers: list) -> bool:
         
             if len(speakers) == 0:
                 return False
@@ -71,9 +71,9 @@ class Activity:
                 return False
 
         @staticmethod
-        def validate_schedule(schedule: list)->bool:
-
-            if len(schedule) < 8:
+        def validate_schedule(schedule: list) -> bool:
+            
+            if len(schedule) == 0:
                 return False
 
             if type(schedule) != list:

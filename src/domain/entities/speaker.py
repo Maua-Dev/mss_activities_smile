@@ -28,4 +28,9 @@ class Speaker:
             if type(bio) != str:
                 return False
 
+        # considerando que não seja um representante de uma empresa
+        # @staticmethod
+        # def validate_company(company: str)->bool:
         
+        #     if type(company) != str:
+        #         return False
