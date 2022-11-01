@@ -28,18 +28,59 @@ class Activity:
             if title == None:
                 return False
 
+            if type(title) != str:
+                return False
+
+            #descobrir estrutura do código pra verificação
         @staticmethod
         def validate_code(code: str)->bool:
         
             if code == None:
                 return False
 
+            if type(code) != str:
+                return False
+
+            #verificar se na versão final haverá acento
+            if "Código" not in code:
+                return False
+                
         @staticmethod
         def validate_description(description: str)->bool:
         
             if description == None:
                 return False
 
+            if type(description) != str:
+                return False
+
+
+        @staticmethod
+        def validate_activityType(activityType: str)->bool:
+        
+            if activityType == None:
+                return False
+
+            if type(activityType) != str:
+                return False
+
+        @staticmethod
+        def validate_speakers(speakers: list)->bool:
+        
+            if len(speakers) < 3:
+                return False
+
+            if type(speakers) != list:
+                return False
+
+        @staticmethod
+        def validate_schedule(schedule: list)->bool:
+
+            if len(schedule) < 8:
+                return False
+
+            if type(schedule) != list:
+                return False
 
 
                 
