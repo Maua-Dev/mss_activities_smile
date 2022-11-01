@@ -10,7 +10,7 @@ class Speaker:
 
 
         @staticmethod
-        def validate_name(name: str)->bool:
+        def validate_name(name: str) -> bool:
         
             if name == None:
                 return False
@@ -18,15 +18,19 @@ class Speaker:
             if type(name) != str:
                 return False
 
+            return True
 
         @staticmethod
-        def validate_bio(bio: str)->bool:
+        def validate_bio(bio: str) -> bool:
         
             if bio == None:
                 return False
 
             if type(bio) != str:
                 return False
+
+            return True
+
 
         # considerando que não seja um representante de uma empresa
         # @staticmethod

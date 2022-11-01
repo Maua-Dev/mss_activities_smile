@@ -60,6 +60,8 @@ class Schedule:
             if (initialDate >= finalDate) or (duration != (finalDate - initialDate)):
                 return False
 
+            return True
+
         @staticmethod
         def validate_maxParticipants(maxParticipants: int) -> bool:
         
@@ -72,6 +74,8 @@ class Schedule:
             if type(maxParticipants) != int:
                 return False
 
+            return True
+
         @staticmethod
         def validate_location(location: str)->bool:
         
@@ -80,6 +84,8 @@ class Schedule:
 
             if type(location) != str:
                 return False
+
+            return True
 
         @staticmethod
         def validate_remoteRoomUrl(remoteRoomUrl: str) -> bool:
@@ -90,6 +96,8 @@ class Schedule:
             if type(remoteRoomUrl) != str:
                 return False
 
+            return True
+
         @staticmethod
         def validate_acceptSubscription(acceptSubscription: bool) -> bool:
         
@@ -99,6 +107,8 @@ class Schedule:
             if type(acceptSubscription) != bool:
                 return False   
 
+            return True
+            
         @staticmethod
         def validate_acceptSubscriptionUntilDate(acceptSubscriptionUntilDate: datetime) -> bool:
         
@@ -107,3 +117,5 @@ class Schedule:
 
             if not isinstance(acceptSubscriptionUntilDate, datetime):
                 return False
+
+            return True

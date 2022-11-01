@@ -30,6 +30,8 @@ class Activity:
             if type(title) != str:
                 return False
 
+            return True
+
         @staticmethod
         def validate_code(code: str) -> bool:
         
@@ -41,7 +43,9 @@ class Activity:
 
             if "Código" not in code:
                 return False
-                
+            
+            return True
+            
         @staticmethod
         def validate_description(description: str) -> bool:
         
@@ -51,6 +55,7 @@ class Activity:
             if type(description) != str:
                 return False
 
+            return True
 
         @staticmethod
         def validate_activityType(activityType: str) -> bool:
@@ -61,6 +66,8 @@ class Activity:
             if type(activityType) != str:
                 return False
 
+            return True
+
         @staticmethod
         def validate_speakers(speakers: list) -> bool:
         
@@ -69,6 +76,8 @@ class Activity:
 
             if type(speakers) != list:
                 return False
+
+            return True
 
         @staticmethod
         def validate_schedule(schedule: list) -> bool:
@@ -79,5 +88,6 @@ class Activity:
             if type(schedule) != list:
                 return False
 
+            return True
 
                 
