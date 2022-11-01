@@ -1,17 +1,21 @@
 # Façam validação dos atributos
+import datetime
+
 
 class Schedule:
-    initialDate: str
-    finalDate: str
+    initialDate: datetime.datetime
+    finalDate: datetime.datetime
+    duration: datetime.timedelta
     maxParticipants: int
     location: str
     remoteRoomUrl: str
     acceptSubscription: bool
-    acceptSubscriptionUntilDate: bool
+    acceptSubscriptionUntilDate: datetime.datetime
 
     def __init__(self,
                  initialDate,
                  finalDate,
+                 duration,
                  maxParticipants,
                  location,
                  remoteRoomUrl,
@@ -19,7 +23,8 @@ class Schedule:
                  acceptSubscriptionUntilDate
                  ):
         self.initialDate = initialDate
-        self.finalDate = finalDate
+        self.finalDate = finalDate or initialDate + duration
+        self.duration = duration or finalDate - initialDate
         self.maxParticipants = maxParticipants
         self.location = location
         self.remoteRoomUrl = remoteRoomUrl

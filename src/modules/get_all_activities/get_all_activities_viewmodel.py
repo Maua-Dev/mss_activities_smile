@@ -1,3 +1,5 @@
+import datetime
+
 from src.domain.entities.activity import Activity
 
 from typing import List
@@ -25,9 +27,10 @@ class SpeakerViewModel:
 
 class ScheduleViewModel:
     schedules: List[Schedule]
-    initialDate: str
+    initialDate: datetime.datetime
+    finalDate: datetime.datetime
     maxParticipants: int
-    finalDate: str
+    duration: datetime.timedelta
     location: str
     remoteRoomUrl: str
     acceptSubscriptionUntilDate: bool
@@ -39,9 +42,10 @@ class ScheduleViewModel:
 
     def to_dict(self):
         return [{
-            'date': schedule.initialDate,
+            'date': datetime.datetime.timestamp(schedule.initialDate),
             'totalParticipants': schedule.maxParticipants,
-            'duration': schedule.finalDate,
+            'duration': schedule.duration.total_seconds() * 1000
+                        or (schedule.finalDate - schedule.initialDate).total_seconds() * 1000,
             'location': schedule.location,
             'link': schedule.remoteRoomUrl,
             'acceptSubscription': schedule.acceptSubscription
@@ -53,7 +57,7 @@ class ActivityViewModel:
     title: str
     code: str
     description: str
-    activity_type: str
+    activityType: str
     speakers: SpeakerViewModel
     schedule: ScheduleViewModel
 
@@ -61,14 +65,14 @@ class ActivityViewModel:
         self.title = data.title
         self.code = data.code
         self.description = data.description
-        self.activity_type = data.activity_type
+        self.activityType = data.activityType
         self.speakers = SpeakerViewModel(data.speakers)
         self.schedule = ScheduleViewModel(data.schedule)
 
     def to_dict(self):
         return {
             'activityCode': self.code,
-            'type': self.activity_type,
+            'type': self.activityType,
             'title': self.title,
             'description': self.description,
             'schedule': self.schedule.to_dict(),

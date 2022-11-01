@@ -9,15 +9,15 @@ class Activity:
     title: str
     code: str
     description: str
-    activity_type: str
+    activityType: str
     speakers: List[Speaker]
     schedule: List[Schedule]
 
-    def __init__(self, title, code, description, activity_type, speakers, schedule):
+    def __init__(self, title, code, description, activityType, speakers, schedule):
 
         self.title = title
         self.code = code
         self.description = description
-        self.activity_type = activity_type
+        self.activityType = activityType
         self.speakers = speakers
         self.schedule = schedule
