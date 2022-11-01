@@ -14,9 +14,9 @@ class Test_GetAllSubjectsViewModel:
             'title': "Atividade 1",
             'description': "Descrição 1",
             'schedule': [{
-                'date': "2021-01-01",
+                'date': 1663668000.0,
                 'totalParticipants': 100,
-                'duration': "2021-01-02",
+                'duration': 3600000.0,
                 'location': "H201",
                 'link': "https://zoom.com/etc/1/",
                 'acceptSubscription': True

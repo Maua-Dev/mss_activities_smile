@@ -1,6 +1,8 @@
 import datetime
 from typing import List
 
+import pytz
+
 from src.domain.entities.activity import Activity
 from src.domain.entities.schedule import Schedule
 from src.domain.entities.speaker import Speaker
@@ -22,13 +24,16 @@ class ActivityRepositoryMock(IActivityRepository):
                      ],
                      schedule=[
                          Schedule(
-                             initialDate=datetime.datetime(year=2022, month=9, day=20, hour=10, minute=00),
-                             finalDate=datetime.datetime(year=2022, month=9, day=20, hour=11, minute=00),
+                             initialDate=datetime.datetime(year=2022, month=9, day=20, hour=10,
+                                                           minute=00, tzinfo=pytz.timezone('Etc/UTC')),
+                             finalDate=datetime.datetime(year=2022, month=9, day=20, hour=11,
+                                                         minute=00, tzinfo=pytz.timezone('Etc/UTC')),
                              maxParticipants=100,
                              location='H201',
                              remoteRoomUrl='https://zoom.com/etc/1/',
                              acceptSubscription=True,
-                             acceptSubscriptionUntilDate=datetime.datetime(year=2022, month=9, day=20, hour=11, minute=00),
+                             acceptSubscriptionUntilDate=datetime.datetime(year=2022, month=9, day=20, hour=11,
+                                                                           minute=00, tzinfo=pytz.timezone('Etc/UTC')),
                              duration=None
                          )
                      ]
@@ -43,13 +48,16 @@ class ActivityRepositoryMock(IActivityRepository):
                      ],
                      schedule=[
                          Schedule(
-                             initialDate=datetime.datetime(year=2022, month=9, day=20, hour=10, minute=00),
-                             finalDate=datetime.datetime(year=2022, month=9, day=20, hour=11, minute=00),
+                             initialDate=datetime.datetime(year=2022, month=9, day=20, hour=10,
+                                                           minute=00, tzinfo=pytz.timezone('Etc/UTC')),
+                             finalDate=datetime.datetime(year=2022, month=9, day=20, hour=11,
+                                                         minute=00, tzinfo=pytz.timezone('Etc/UTC')),
                              maxParticipants=100,
                              location='H201',
                              remoteRoomUrl='https://zoom.com/etc/1/',
                              acceptSubscription=True,
-                             acceptSubscriptionUntilDate=datetime.datetime(year=2022, month=9, day=20, hour=11, minute=00),
+                             acceptSubscriptionUntilDate=datetime.datetime(year=2022, month=9, day=20, hour=11,
+                                                                           minute=00, tzinfo=pytz.timezone('Etc/UTC')),
                              duration=None
                          )
                      ]
@@ -65,13 +73,16 @@ class ActivityRepositoryMock(IActivityRepository):
                      ],
                      schedule=[
                          Schedule(
-                             initialDate=datetime.datetime(year=2022, month=9, day=20, hour=10, minute=00),
-                             finalDate=datetime.datetime(year=2022, month=9, day=20, hour=11, minute=00),
+                             initialDate=datetime.datetime(year=2022, month=9, day=20, hour=10,
+                                                           minute=00, tzinfo=pytz.timezone('Etc/UTC')),
+                             finalDate=datetime.datetime(year=2022, month=9, day=20, hour=11,
+                                                         minute=00, tzinfo=pytz.timezone('Etc/UTC')),
                              maxParticipants=100,
                              location='H201',
                              remoteRoomUrl='https://zoom.com/etc/1/',
                              acceptSubscription=True,
-                             acceptSubscriptionUntilDate=datetime.datetime(year=2022, month=9, day=20, hour=11, minute=00),
+                             acceptSubscriptionUntilDate=datetime.datetime(year=2022, month=9, day=20, hour=11,
+                                                                           minute=00, tzinfo=pytz.timezone('Etc/UTC')),
                              duration=None
                          )
                      ]
@@ -86,13 +97,16 @@ class ActivityRepositoryMock(IActivityRepository):
                      ],
                      schedule=[
                          Schedule(
-                             initialDate=datetime.datetime(year=2022, month=9, day=20, hour=10, minute=00),
-                             finalDate=datetime.datetime(year=2022, month=9, day=20, hour=11, minute=00),
+                             initialDate=datetime.datetime(year=2022, month=9, day=20, hour=10,
+                                                           minute=00, tzinfo=pytz.timezone('Etc/UTC')),
+                             finalDate=datetime.datetime(year=2022, month=9, day=20, hour=11,
+                                                         minute=00, tzinfo=pytz.timezone('Etc/UTC')),
                              maxParticipants=100,
                              location='H201',
                              remoteRoomUrl='https://zoom.com/etc/1/',
                              acceptSubscription=True,
-                             acceptSubscriptionUntilDate=datetime.datetime(year=2022, month=9, day=20, hour=11, minute=00),
+                             acceptSubscriptionUntilDate=datetime.datetime(year=2022, month=9, day=20, hour=11,
+                                                                           minute=00, tzinfo=pytz.timezone('Etc/UTC')),
                              duration=None
                          )
                      ]
