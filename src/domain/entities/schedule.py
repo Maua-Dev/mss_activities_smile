@@ -21,7 +21,12 @@ class Schedule:
                  acceptSubscription,
                  acceptSubscriptionUntilDate
                  ):
+        if not Activity.validate_initialDate(initialDate):
+            raise EntityError('initialDate')
         self.initialDate = initialDate
+
+        if not Activity.validate_initialDate(initialDate):
+            raise EntityError('initialDate')
         self.finalDate = finalDate or initialDate + duration
         self.duration = duration or finalDate - initialDate
         self.maxParticipants = maxParticipants
@@ -36,8 +41,8 @@ class Schedule:
                         initialDate: datetime, 
                         duration: datetime) -> bool:
 
-            #finalDate validation
-            if finalDate == None:
+            # finalDate validation
+            if finalDate is None or duration is None:
                 return False
 
             if not isinstance(finalDate, datetime):
@@ -48,11 +53,7 @@ class Schedule:
                 return False
 
             if not isinstance(initialDate, datetime):
-                return False            
-
-            #duration validation:
-            if duration == None:
-                return False
+                return False           
 
             if not isinstance(duration, timedelta):
                 return False 
@@ -118,4 +119,4 @@ class Schedule:
             if not isinstance(acceptSubscriptionUntilDate, datetime):
                 return False
 
-            return True
+            return True     

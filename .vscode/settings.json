@@ -4,6 +4,8 @@
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
-    "python.linting.enabled": false,
-    "python.analysis.typeCheckingMode": "off"
+    "python.linting.enabled": true,
+    "python.analysis.typeCheckingMode": "off",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true
 }
