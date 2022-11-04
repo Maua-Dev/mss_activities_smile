@@ -1,3 +1,6 @@
+from typing import Any
+
+from src.helpers.http_status_code import HttpStatusCode
 
 
 class HttpRequest:
@@ -12,12 +15,42 @@ class HttpRequest:
 
 
 class HttpResponse:
-    body: dict
     status_code: int
+    body: dict
+    headers: dict
 
-    def __init__(self, body: dict = None, status_code: int = 200):
-        self.body = body
+    def __init__(self, status_code: int, body: dict = None, headers: dict = None):
         self.status_code = status_code
+        self.body = body
+        self.headers = headers
 
-    def __call__(self, *args, **kwargs):
-        return self.body, self.status_code
+
+
+class OK(HttpResponse):
+    def __init__(self, body: Any) -> None:
+        super().__init__(HttpStatusCode.OK.value, body)
+
+class Created(HttpResponse):
+    def __init__(self) -> None:
+        super().__init__(HttpStatusCode.CREATED.value, None)
+
+class NoContent(HttpResponse):
+    def __init__(self) -> None:
+        super().__init__(HttpStatusCode.NO_CONTENT.value, None)
+
+class BadRequest(HttpResponse):
+    def __init__(self, body: Any) -> None:
+        super().__init__(HttpStatusCode.BAD_REQUEST.value, body)
+
+class InternalServerError(HttpResponse):
+    def __init__(self, body: Any) -> None:
+        super().__init__(HttpStatusCode.INTERNAL_SERVER_ERROR.value, body)
+
+class NotFound(HttpResponse):
+    def __init__(self, body: Any) -> None:
+        super().__init__(HttpStatusCode.NOT_FOUND.value, body)
+
+class RedirectResponse(HttpResponse):
+    def __init__(self, body: dict) -> None:
+        super().__init__(HttpStatusCode.REDIRECT.value, None)
+        self.location = body

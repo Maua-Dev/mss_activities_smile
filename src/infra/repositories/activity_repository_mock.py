@@ -33,3 +33,16 @@ class ActivityRepositoryMock(IActivityRepository):
                 activities_aux.append(activity)
 
         return activities_aux
+
+    def update_activity(self, activityUpdate: Activity) -> Activity: 
+        aux = []
+
+        for activity in self.activities:
+            if activityUpdate.code == activity.code:
+                aux.append(activityUpdate)
+            else:
+                aux.append(activity)
+
+        self.activities = aux
+        return activityUpdate
+        
