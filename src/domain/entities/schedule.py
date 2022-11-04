@@ -21,18 +21,35 @@ class Schedule:
                  acceptSubscription,
                  acceptSubscriptionUntilDate
                  ):
-        if not Activity.validate_initialDate(initialDate):
-            raise EntityError('initialDate')
+        if not Schedule.validate_initialDate(initialDate):
+            raise Schedule('initialDate')
         self.initialDate = initialDate
 
-        if not Activity.validate_initialDate(initialDate):
-            raise EntityError('initialDate')
-        self.finalDate = finalDate or initialDate + duration
+        if not Schedule.finalDate:
+            raise Schedule('finalDate')
+        if not Schedule.duration:
+            raise('duration')
+        if not Schedule.initialDate:
+            raise('initialDate')
+        self.finalDate = finalDate or initialDate + duration 
         self.duration = duration or finalDate - initialDate
+
+        #confirmar com o Rocha
         self.maxParticipants = maxParticipants
+        if not Schedule.validate_location(location):
+            raise Schedule('schedule')
         self.location = location
+
+        if not Schedule.validate_remoteRoomUrl(remoteRoomUrl):
+            raise Schedule('remoteRoomUrl')
         self.remoteRoomUrl = remoteRoomUrl
+
+        if not Schedule.acceptSubscription(acceptSubscription):
+            raise Schedule('acceptSubscription')
         self.acceptSubscription = acceptSubscription
+
+        if not Schedule.acceptSubscriptionUntilDate(acceptSubscriptionUntilDate):
+            raise Schedule('acceptSubscriptionUntilDate')
         self.acceptSubscriptionUntilDate = acceptSubscriptionUntilDate
         
 
@@ -49,7 +66,7 @@ class Schedule:
                 return False
 
             #initialDate validation
-            if initialDate == None:
+            if initialDate is None:
                 return False
 
             if not isinstance(initialDate, datetime):
@@ -62,11 +79,11 @@ class Schedule:
                 return False
 
             return True
-
+        # Confirmar com o Rocha
         @staticmethod
         def validate_maxParticipants(maxParticipants: int) -> bool:
         
-            if maxParticipants == None:
+            if maxParticipants is None:
                 return False
 
             if maxParticipants <= 0:
@@ -80,7 +97,7 @@ class Schedule:
         @staticmethod
         def validate_location(location: str)->bool:
         
-            if location == None:
+            if location is None:
                 return False
 
             if type(location) != str:
@@ -91,7 +108,7 @@ class Schedule:
         @staticmethod
         def validate_remoteRoomUrl(remoteRoomUrl: str) -> bool:
         
-            if remoteRoomUrl == None:
+            if remoteRoomUrl is None:
                 return False
 
             if type(remoteRoomUrl) != str:

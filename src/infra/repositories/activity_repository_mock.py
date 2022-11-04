@@ -1,8 +1,6 @@
 import datetime
 from typing import List
 
-import pytz
-
 from src.domain.entities.activity import Activity
 from src.domain.entities.schedule import Schedule
 from src.domain.entities.speaker import Speaker
