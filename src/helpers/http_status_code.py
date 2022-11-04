@@ -14,4 +14,8 @@ class HttpStatusCode(Enum):
     INTERNAL_SERVER_ERROR = 500
     BAD_GATEWAY = 502
     SERVICE_UNAVAILABLE = 503
+<<<<<<< HEAD
     GATEWAY_TIMEOUT = 504
+=======
+    GATEWAY_TIMEOUT = 504
+>>>>>>> d3464796e57b55bc7ae5cb668b78098a4fc2f4ec

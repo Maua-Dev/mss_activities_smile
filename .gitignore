@@ -1,1 +1,8 @@
 **/.pytest_cache/
+**/__pycache__
+.idea
+**.cfg
+/Lib
+/Scripts
+/vscode/**/*
+/Include

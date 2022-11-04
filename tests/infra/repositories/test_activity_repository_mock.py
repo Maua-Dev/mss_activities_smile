@@ -1,5 +1,4 @@
 import pytest
-
 from src.infra.repositories.activity_repository_mock import ActivityRepositoryMock
 
 
@@ -25,19 +24,5 @@ class Test_ActivityRepositoryMock:
         assert activity == repo.activities[2]
 
         activity = repo.get_activity_by_code("Código 4")
-        assert activity == None
+        assert activity == repo.activities[3]
 
-    def test_get_activities_by_type(self):
-        repo = ActivityRepositoryMock()
-
-        activities = repo.get_activities_by_type("Tipo 1")
-        assert activities == [repo.activities[0], repo.activities[1]]
-
-        activities = repo.get_activities_by_type("Tipo 2")
-        assert activities == []
-
-        activities = repo.get_activities_by_type("Tipo 3")
-        assert activities == [repo.activities[2]]
-
-        activities = repo.get_activities_by_type("Tipo 4")
-        assert activities == []
